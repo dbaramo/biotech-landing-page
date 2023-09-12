@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1000;
+  background-color: #080d2b;
+}
+.initial-child-container {
+  align-items: center;
+}
+.press-bottom-border {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.leva-c-kWgxhW {
+  display: none !important;
+}
