@@ -76,10 +76,10 @@ void main() {
     float dist = length( modelToDisplay - position );
     if( dist > 0.01 ) {
         if(uTime < 3.5){
-            if(uTime < 2.5 && uTime > 0.001){
+            if(uTime < 2.0 && uTime > 0.001){
                 velocity += direction * sineIn(uTime)*0.0015 ;
             } else {
-                velocity += direction * 0.0025;
+                velocity += direction * 0.00025;
             }
         } else {
             velocity += direction * 0.001;    
@@ -99,10 +99,10 @@ void main() {
     }
 
     // lifespan of a particle
-    // float lifespan = 10.;
+    // float lifespan = 0.3;
     // float age = mod( uTime+ lifespan*offset, lifespan );
     // if(age<0.1){
-    //     // velocity = vec2(0.0,0.001);
+    //     velocity = vec3(0.0,0.0, 0.0);
     //     position.xyz = modelToDisplay;
     // }
 

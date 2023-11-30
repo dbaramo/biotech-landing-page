@@ -44,15 +44,15 @@ export default function LastSection() {
           <div className="max-w-[750px] m-auto">
             <HeadlineBlock
               headline={
-                "Andreessen Co-Leads $200 Million Investment in Biotech Startup Robust Labs"
+                "Robust Labs to Present Data on Treatment of Neurodegeneration and Brain Aging at Upcoming Conference"
               }
-              imgURL={"press-logos/wsj.png"}
+              imgURL={"press-logos/tc.png"}
             />
             <HeadlineBlock
               headline={
-                "Robust Labs announces AI discovery deal with Eli Lilly, $20M in upfront cash with potential total value of $670M"
+                "Andreessen Co-Leads $200 Million Investment in Biotech Startup Robust Labs"
               }
-              imgURL={"press-logos/tc.png"}
+              imgURL={"press-logos/wsj.png"}
             />
             <HeadlineBlock
               headline={
@@ -62,7 +62,7 @@ export default function LastSection() {
             />
             <HeadlineBlock
               headline={
-                "Robust Labs raises $52M A round for its AI-focused drug discovery mission"
+                "Robust Labs Announces New Clinical Data Supporting a Potential Treatment for Pompe Disease"
               }
               imgURL={"press-logos/bw.png"}
             />

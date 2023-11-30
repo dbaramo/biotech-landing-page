@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function GPGPU() {
   const { scene, viewport, camera, raycaster } = useThree();
 
+  // console.log();
+
   const { progress } = useControls({
     progress: {
       value: 0,
@@ -112,19 +114,19 @@ export default function GPGPU() {
 
   const dnaHelixTexture = useMemo(
     () => getModelTexture(SIZE, dnaHelixMesh),
-    []
+    [],
   );
   const introCubeTexture = useMemo(
     () => getModelTexture(SIZE, introCubeMesh),
-    []
+    [],
   );
   const microscopeTexture = useMemo(
     () => getModelTexture(SIZE, microscopeMesh),
-    []
+    [],
   );
   const humanBodyTexture = useMemo(
     () => getModelTexture(SIZE, humanBodyMesh),
-    []
+    [],
   );
   const sphereTexture = useMemo(() => getModelTexture(SIZE, sphereMesh), []);
 
@@ -138,12 +140,12 @@ export default function GPGPU() {
   const positionVariable = gpuCompute.addVariable(
     "uCurrentPosition",
     simPositionFragment,
-    introCubeTexture
+    introCubeTexture,
   );
   const velocityVariable = gpuCompute.addVariable(
     "uCurrentVelocity",
     simVelocityFragment,
-    velocitiesTexture
+    velocitiesTexture,
   );
 
   gpuCompute.setVariableDependencies(positionVariable, [
@@ -203,7 +205,7 @@ export default function GPGPU() {
 
     instancedMeshRef.current.geometry.setAttribute(
       "uvRef",
-      new THREE.InstancedBufferAttribute(uvArray, 2)
+      new THREE.InstancedBufferAttribute(uvArray, 2),
     );
 
     //Trasnform model into human body
@@ -230,8 +232,9 @@ export default function GPGPU() {
           } else if (u.progress > 0.5 && u.progress < 0.8) {
             changeToSphereModel();
           }
-
-          camera.filmOffset = -24 * Math.min(u.progress, 0.25) * (1.0 / 0.25);
+          // console.log();
+          // camera.fov = 75;
+          camera.filmOffset = -20 * Math.min(u.progress, 0.18) * (1.0 / 0.18);
           camera.updateProjectionMatrix();
           velocityUniforms.uScrollProgress.value = u.progress;
           mainShaderRef.current.uniforms.uScrollProgress.value = u.progress;
@@ -265,6 +268,7 @@ export default function GPGPU() {
       gpuCompute.getCurrentRenderTarget(velocityVariable).texture;
 
     velocityUniforms.uTime.value = clock.elapsedTime;
+    // console.log(velocityUniforms.uTime.value);
   });
 
   const pointer = new THREE.Vector2();

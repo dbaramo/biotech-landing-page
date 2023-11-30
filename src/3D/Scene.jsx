@@ -20,7 +20,7 @@ export default function Scene() {
           const p = cameraTween.progress();
 
           controlsRef.current.object.position.y = 5 + -p * 5 + 0.2;
-          controlsRef.current.object.position.z = p * 1.8;
+          controlsRef.current.object.position.z = p * 1.6;
           camera.fov = 75 - 12 * p;
           camera.updateProjectionMatrix();
         },
@@ -36,7 +36,7 @@ export default function Scene() {
       <OrbitControls
         ref={controlsRef}
         autoRotate={true}
-        autoRotateSpeed={5}
+        autoRotateSpeed={3}
         enableRotate={false}
         enableZoom={false}
       />

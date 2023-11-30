@@ -9,7 +9,7 @@ function R3FScene() {
     <>
       <div id="canvas-container">
         {/* <Stats /> */}
-        {<Leva collapsed />}
+        {<Leva  />}
         <Canvas
           camera={{
             fov: 75,

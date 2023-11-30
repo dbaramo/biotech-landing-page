@@ -11,12 +11,12 @@ function Loading(props) {
   const { loaded } = props;
   if (loadingTextRef.current) {
     loadingTextRef.current.textContent = `${((loaded / 13) * 100).toFixed(
-      0
+      0,
     )} %`;
   }
 
   return (
-    <section className="w-full h-[100svh] text-[#F1F1FA] flex justify-center items-center text-center">
+    <section className="w-full h-[100svh] text-[#F1F1FA] flex justify-center items-center text-center absolute">
       <div>
         {/* <p>LOADING</p> */}
         <p className="text-5xl" ref={loadingTextRef}>
@@ -27,21 +27,25 @@ function Loading(props) {
   );
 }
 
-function Sections() {
+export default function Sections() {
+  const { loaded } = useProgress();
   return (
-    <div id="sections-container" className="w-full h-full">
-      <SectionOne />
-      <SectionTwo />
-      <SectionThree />
-      <SectionFour />
-      <LastSection />
+    <div>
+      {loaded / 13 < 1 ? <Loading loaded={loaded} /> : null}
+      <div id="sections-container" className="w-full h-full ">
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+        <SectionFour />
+        <LastSection />
+      </div>
     </div>
   );
 }
 
-export default function Content() {
-  const { loaded } = useProgress();
+// export default function Content() {
+//   const { loaded } = useProgress();
 
-  return loaded / 13 < 1 ? <Loading loaded={loaded} /> : <Sections />;
-  // return <Sections />;
-}
+//   return loaded / 13 < 1 ? <Loading loaded={loaded} /> : <Sections />;
+//   // return <Sections />;
+// }

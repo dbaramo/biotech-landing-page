@@ -11,9 +11,9 @@ export default function SectionOne() {
       const tl = gsap.timeline();
       tl.to(".hc-1", {
         transform: "translateY(0)",
-        delay: 2.0,
-        duration: 1,
-      }).to(".sub-1", { transform: "translateY(0)", duration: 1 });
+        delay: 2.5,
+        duration: 0.5,
+      }).to(".sub-1", { transform: "translateY(0)", duration: 0.5 });
 
       const reversed = gsap.timeline({
         scrollTrigger: {
@@ -29,7 +29,7 @@ export default function SectionOne() {
         {
           transform: "translateY(100%)",
         },
-        "<"
+        "<",
       );
     }, sectionDivRef);
 
